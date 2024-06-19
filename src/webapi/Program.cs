@@ -8,7 +8,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 //Routes
-app.MapGet("/", () => "Hello ゴジラ (🦖)!");
+app.MapGet("/", () => Results.Content(Pages.Home, "text/html"));
 app.MapGet("/0", () =>  Results.Content(Pages.Level0, "text/html"));
 app.MapGet("/1", () =>  Results.Content(Pages.Level1, "text/html"));
 

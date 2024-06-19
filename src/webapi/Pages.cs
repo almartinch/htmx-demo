@@ -3,6 +3,17 @@
   const string CSS = """https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css""";
   const string HTMX = """https://unpkg.com/htmx.org@2.0.0""";
   enum Levels { averno, sparta };
+
+  internal static string Home = $"""
+  <html>
+    <head>
+      <meta charset="UTF-8">
+    </head>
+    <body>
+      Hello <a href="https://www.youtube.com/watch?v=VvSrHIX5a-0">ゴジラ</a> 🦖!      
+    </body>
+  </html>
+  """;
   
   internal static string Level0 = $"""
   <!doctype html>
