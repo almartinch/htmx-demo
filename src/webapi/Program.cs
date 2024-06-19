@@ -1,38 +1,19 @@
+//Dependencies
+using Microsoft.AspNetCore.Mvc;
+
 //Setup
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
+app.UseHttpsRedirection();
 app.UseStaticFiles();
 
-//Content
-string htmx = $"""
-<html>
-    <body>
-        <script src="https://unpkg.com/htmx.org@1.9.12"></script>
-        <!-- have a button POST a click via AJAX -->
-        <button hx-post="/clicked" hx-swap="outerHTML">
-        Click Me
-        </button>
-    </body>
-</html>
-""";
-string html = $"""
-<!doctype html>
-<html lang="en-US">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>My test page</title>
-  </head>
-  <body>
-    <img src="images/firefox-icon.png" alt="My test image" />
-  </body>
-</html>
-""";
-
 //Routes
-app.MapGet("/", () => "Hello ゴジラ (Godzilla)!");
-app.MapGet("/html", () =>  Results.Content(html, "text/html"));
-app.MapGet("/htmx", () =>  Results.Content(htmx, "text/html"));
+app.MapGet("/", () => "Hello ゴジラ (🦖)!");
+app.MapGet("/0", () =>  Results.Content(Pages.Level0, "text/html"));
+app.MapGet("/1", () =>  Results.Content(Pages.Level1, "text/html"));
+
+app.MapPost("/click", ([FromForm] int count) => Results.Content(Pages.BuildForm(count + 1), "text/html"))
+  .DisableAntiforgery(); // So no token needed
 
 //Liftoff
 app.Run();
