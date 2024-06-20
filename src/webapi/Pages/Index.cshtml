@@ -3,7 +3,7 @@
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @model IndexModel
 @{
-    ViewData["Title"] = Constants.BuildTitle(1) + " with Razor";
+    ViewData["Title"] = $"{Constants.BuildTitle(1)} with Razor";
 }
 
 <!DOCTYPE html>
@@ -23,7 +23,7 @@
             <h2>a button</h2>
             <form hx-post="" hx-swap="outerHTML">
                 <label for="count">Count:</label>
-                <input type="number" name="count" value=@Model.Counter readonly/>
+                <input type="number" name="count" value="0" readonly/>
                 <!-- have a button POST a click via AJAX -->
                 <button type="submit">Click Me</button>
             </form>

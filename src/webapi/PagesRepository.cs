@@ -60,7 +60,7 @@ public static class PagesRepository {
       <main class="container">
         <h1>{Constants.BuildTitle(1)}</h1>
         <h2>a button</h2>
-        {BuildForm(0)}
+        {BuildForm(0, "/click")}
       </main>
     </body>
 
@@ -70,10 +70,10 @@ public static class PagesRepository {
   </html>
   """;
   
-  public static string BuildForm(int count)
+  public static string BuildForm(int count, string postEndpoint = "")
   {
       return $"""
-      <form hx-post="/click" hx-swap="outerHTML">
+      <form hx-post="{postEndpoint}" hx-swap="outerHTML">
           <label for="count">Count:</label>
           <input type="number" name="count" value="{count}" readonly/>
           <!-- have a button POST a click via AJAX -->
