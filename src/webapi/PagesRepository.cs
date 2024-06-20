@@ -45,11 +45,11 @@ public static class PagesRepository {
   """;
 
   public static string Level1 = $"""
-  <!doctype html>
+  <!DOCTYPE html>
   <html lang="en">
     <head>
       <meta charset="utf-8" />
-      <meta name="viewport" content="width=device-width" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <title>{Constants.BuildTitle(1)}</title>
       
       <link rel="stylesheet" href="{Constants.CSS}">    
@@ -57,16 +57,20 @@ public static class PagesRepository {
     </head>
     
     <body>
-      <main class="container">
-        <h1>{Constants.BuildTitle(1)}</h1>
-        <h2>a button</h2>
-        {BuildForm(0, "/click")}
-      </main>
-    </body>
-
+      <div class="container">
+        <main role="main">
+          <p align="right">Hello <a href="https://www.youtube.com/watch?v=VvSrHIX5a-0">ゴジラ</a> 🦖!</p>
+          <h1>{Constants.BuildTitle(1)}</h1>
+          <h2>a button</h2>
+          {BuildForm(0, "/click")}
+          <h2>a static asset</h2>
+          <img src="images/firefox-icon.png" alt="My test image" />
+        </main>
+    </div>
     <footer class="container">
       <img src="https://htmx.org/img/createdwith.jpeg" alt"htmx rules"/>
     </footer>
+    </body>
   </html>
   """;
   

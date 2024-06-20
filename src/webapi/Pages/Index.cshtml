@@ -19,7 +19,8 @@
 <body>
     <div class="container">
         <main role="main">
-            <h1>@Constants.BuildTitle(1)</h1>
+            <p align="right">Hello <a href="https://www.youtube.com/watch?v=VvSrHIX5a-0">ゴジラ</a> 🦖!</p>
+            <h1>@ViewData["Title"]</h1>
             <h2>a button</h2>
             <form hx-post="" hx-swap="outerHTML">
                 <label for="count">Count:</label>
@@ -27,6 +28,8 @@
                 <!-- have a button POST a click via AJAX -->
                 <button type="submit">Click Me</button>
             </form>
+            <h2>a static asset</h2>
+            <img src="images/firefox-icon.png" alt="My test image" />
         </main>
     </div>
     <footer class="container">
