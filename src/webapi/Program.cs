@@ -3,9 +3,11 @@ using Microsoft.AspNetCore.Mvc;
 
 //Setup
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddRazorPages();
+builder.Services.AddRazorPages(o => {
+    o.Conventions.ConfigureFilter(new IgnoreAntiforgeryTokenAttribute()); // So no token needed
+}).AddRazorRuntimeCompilation();
 var app = builder.Build();
-// app.UseHttpsRedirection(); 
+// app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 //Routes

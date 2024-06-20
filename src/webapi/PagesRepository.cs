@@ -1,17 +1,17 @@
-﻿internal static class Constants {
-  internal const string TITLE = "htmx-demo";
-  internal const string CSS = """https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css""";
-  internal const string HTMX = """https://unpkg.com/htmx.org@2.0.0""";
-  internal const string HTMX_SHA = "sha384-wS5l5IKJBvK6sPTKa2WZ1js3d947pvWXbPJ1OmWfEuxLgeHcEbjUUA5i9V5ZkpCw";
-  internal enum Levels { averno, sparta };
+﻿public static class Constants {
+  public const string TITLE = "htmx-demo";
+  public const string CSS = """https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css""";
+  public const string HTMX = """https://unpkg.com/htmx.org@2.0.0""";
+  public const string HTMX_SHA = "sha384-wS5l5IKJBvK6sPTKa2WZ1js3d947pvWXbPJ1OmWfEuxLgeHcEbjUUA5i9V5ZkpCw";
+  public enum Levels { averno, sparta };
 
-  internal static string BuildTitle(int level) {
+  public static string BuildTitle(int level) {
     return $"{TITLE} level {level}: {(Levels) level}";
   }
 }
 
-internal static class PagesRepository {
-  internal static string Home = $"""
+public static class PagesRepository {
+  public static string Home = $"""
   <html>
     <head>
       <meta charset="UTF-8">
@@ -24,7 +24,7 @@ internal static class PagesRepository {
   </html>
   """;
   
-  internal static string Level0 = $"""
+  public static string Level0 = $"""
   <!doctype html>
   <html lang="en-US">
     <head>
@@ -44,7 +44,7 @@ internal static class PagesRepository {
   </html>
   """;
 
-  internal static string Level1 = $"""
+  public static string Level1 = $"""
   <!doctype html>
   <html lang="en">
     <head>
@@ -70,7 +70,7 @@ internal static class PagesRepository {
   </html>
   """;
   
-  internal static string BuildForm(int count)
+  public static string BuildForm(int count)
   {
       return $"""
       <form hx-post="/click" hx-swap="outerHTML">

@@ -14,16 +14,16 @@
     <title>@ViewData["Title"]</title>
 
     <link rel="stylesheet" href="@Constants.CSS" asp-append-version="true"/>
-    <script src="@Constants.HTMX" integrity="@Constants.HTMX_SHA" crossorigin="anonymous"></script>
+    <script src="@Constants.HTMX" integrity="@Constants.HTMX_SHA" crossorigin="anonymous" asp-append-version="true"></script>
 </head>
 <body>
     <div class="container">
         <main role="main">
             <h1>@Constants.BuildTitle(1)</h1>
             <h2>a button</h2>
-            <form hx-post="/click" hx-swap="outerHTML">
+            <form hx-post="" hx-swap="outerHTML">
                 <label for="count">Count:</label>
-                <input type="number" name="count" value="0" readonly/>
+                <input type="number" name="count" value=@Model.Counter readonly/>
                 <!-- have a button POST a click via AJAX -->
                 <button type="submit">Click Me</button>
             </form>
