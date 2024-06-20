@@ -1,0 +1,36 @@
+@page
+
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model IndexModel
+@{
+    ViewData["Title"] = Constants.BuildTitle(1) + " with Razor";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+
+    <link rel="stylesheet" href="@Constants.CSS" asp-append-version="true"/>
+    <script src="@Constants.HTMX" integrity="@Constants.HTMX_SHA" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <main role="main">
+            <h1>@Constants.BuildTitle(1)</h1>
+            <h2>a button</h2>
+            <form hx-post="/click" hx-swap="outerHTML">
+                <label for="count">Count:</label>
+                <input type="number" name="count" value="0" readonly/>
+                <!-- have a button POST a click via AJAX -->
+                <button type="submit">Click Me</button>
+            </form>
+        </main>
+    </div>
+    <footer class="container">
+      <img src="https://htmx.org/img/createdwith.jpeg" alt"htmx rules"/>
+    </footer>
+</body>
+</html>

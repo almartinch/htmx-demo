@@ -1,14 +1,23 @@
-﻿internal static class Pages {
-  const string TITLE = "htmx-demo";
-  const string CSS = """https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css""";
-  const string HTMX = """https://unpkg.com/htmx.org@2.0.0""";
-  enum Levels { averno, sparta };
+﻿internal static class Constants {
+  internal const string TITLE = "htmx-demo";
+  internal const string CSS = """https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css""";
+  internal const string HTMX = """https://unpkg.com/htmx.org@2.0.0""";
+  internal const string HTMX_SHA = "sha384-wS5l5IKJBvK6sPTKa2WZ1js3d947pvWXbPJ1OmWfEuxLgeHcEbjUUA5i9V5ZkpCw";
+  internal enum Levels { averno, sparta };
 
+  internal static string BuildTitle(int level) {
+    return $"{TITLE} level {level}: {(Levels) level}";
+  }
+}
+
+internal static class PagesRepository {
   internal static string Home = $"""
   <html>
     <head>
       <meta charset="UTF-8">
+      <title>{Constants.TITLE}</title>
     </head>
+
     <body>
       Hello <a href="https://www.youtube.com/watch?v=VvSrHIX5a-0">ゴジラ</a> 🦖!      
     </body>
@@ -21,13 +30,13 @@
     <head>
       <meta charset="utf-8" />
       <meta name="viewport" content="width=device-width" />
-      <title>{BuildTitle(0)}</title>
-      <link rel="stylesheet" href="{CSS}">
+      <title>{Constants.BuildTitle(0)}</title>
+      <link rel="stylesheet" href="{Constants.CSS}">
     </head>
     
     <body>
     <main class="container">
-        <h1>{BuildTitle(0)}</h1>
+        <h1>{Constants.BuildTitle(0)}</h1>
         <h2>a static asset</h2>
         <img src="images/firefox-icon.png" alt="My test image" />
       </main>
@@ -41,26 +50,26 @@
     <head>
       <meta charset="utf-8" />
       <meta name="viewport" content="width=device-width" />
-      <title>{BuildTitle(1)}</title>
+      <title>{Constants.BuildTitle(1)}</title>
       
-      <link rel="stylesheet" href="{CSS}">    
-      <script src="{HTMX}" integrity="sha384-wS5l5IKJBvK6sPTKa2WZ1js3d947pvWXbPJ1OmWfEuxLgeHcEbjUUA5i9V5ZkpCw" crossorigin="anonymous"></script>
+      <link rel="stylesheet" href="{Constants.CSS}">    
+      <script src="{Constants.HTMX}" integrity="{Constants.HTMX_SHA}" crossorigin="anonymous"></script>
     </head>
     
     <body>
       <main class="container">
-        <h1>{BuildTitle(1)}</h1>
+        <h1>{Constants.BuildTitle(1)}</h1>
         <h2>a button</h2>
         {BuildForm(0)}
       </main>
     </body>
+
+    <footer class="container">
+      <img src="https://htmx.org/img/createdwith.jpeg" alt"htmx rules"/>
+    </footer>
   </html>
   """;
   
-  static string BuildTitle(int level) {
-    return $"{TITLE} level {level}: {(Levels) level}";
-  }
-
   internal static string BuildForm(int count)
   {
       return $"""
