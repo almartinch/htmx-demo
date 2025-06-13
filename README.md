@@ -1,21 +1,15 @@
-Personal `htmx` playground.
+# `htmx` demo
 
-Requires NET 8 and Node 20.
+- Requirements
+  - NET 8
+  - Node 20+
+  - Docker (optional), for DevContainers based environment plus VS Code.
 
-> If you're familiar with DevContainers with VS Code, environment is provisioned.
+## Test
 
-# Test `htmx-demo`
-Run:
 ```bash
-$ cd src/webapi
-$ dotnet watch
+cd src/webapi
+dotnet watch
 ```
-Navigate routes.
 
-# Test `htmx-demo` with a React SPA (In progress)
-Follow previous [instructions](#test-htmx-demo). Then run:
-```bash
-$ cd src/webapi
-$ npm install
-$ npm start
-```
+Finally navigate routes found at [src/webapi/Program.cs](src/webapi/Program.cs)
