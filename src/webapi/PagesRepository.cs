@@ -3,7 +3,7 @@
   public const string CSS = """https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css""";
   public const string HTMX = """https://unpkg.com/htmx.org@2.0.0""";
   public const string HTMX_SHA = "sha384-wS5l5IKJBvK6sPTKa2WZ1js3d947pvWXbPJ1OmWfEuxLgeHcEbjUUA5i9V5ZkpCw";
-  public enum Levels { averno, sparta };
+  public enum Levels { averno, sparta, sparta_with_razor };
 
   public static string BuildTitle(int level) {
     return $"{TITLE} level {level}: {(Levels) level}";
